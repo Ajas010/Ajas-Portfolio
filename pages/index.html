@@ -19,16 +19,16 @@
 
     <!-- Header & Navigation Bar -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 transition-all duration-300 shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative">
             <!-- Portfolio Title: Only Ajas -->
             <a href="#home" class="text-2xl font-bold uppercase flex items-center gap-3 text-white">
-                 <img src="../images/ajas.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-main">
+                 <img src="../images/AJ.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-main">
                  <span class="hidden sm:block text-main">Ajas</span>
             </a>
             
             <div class="flex items-center gap-4">
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-6">
+                <nav class="hidden md:flex items-center space-x-6 md:absolute md:left-1/2 md:-translate-x-1/2">
                     <a href="#home" class="nav-link text-lg font-medium hover:text-main transition-colors active">Home</a>
                     <a href="#about" class="nav-link text-lg font-medium hover:text-main transition-colors">About</a>
                     <a href="#education" class="nav-link text-lg font-medium hover:text-main transition-colors">Education</a>
@@ -61,7 +61,7 @@
 
     <main>
         <!-- Home Section -->
-        <section id="home" class="min-h-screen flex items-center pt-24 md:pt-0">
+        <section id="home" class="min-h-screen flex items-center pt-24 md:pt-0 animated-gradient">
             <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-center gap-12">
                 <!-- Left Column: Text Content -->
                 <div class="text-center md:text-left">
@@ -76,11 +76,14 @@
                         <a href="#" class="w-12 h-12 flex items-center justify-center border-2 border-main rounded-full text-main hover:bg-main hover:text-black transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-facebook-f text-xl"></i></a>
                         <a href="#" class="w-12 h-12 flex items-center justify-center border-2 border-main rounded-full text-main hover:bg-main hover:text-black transition-all duration-300 transform hover:-translate-y-1"><i class="fab fa-instagram text-xl"></i></a>
                     </div>
-                    <a href="#contact" class="bg-main text-black font-bold py-3 px-8 rounded-full shadow-main hover:shadow-none transition-shadow">Let's Talk <i class="fa-solid fa-paper-plane ml-2"></i></a>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#contact" class="bg-main text-black font-bold py-3 px-8 rounded-full shadow-main hover:shadow-none transition-shadow">Let's Talk <i class="fa-solid fa-paper-plane ml-2"></i></a>
+                        <a href="#skills-certs" data-open-tab="certs" class="border-2 border-main text-main font-bold py-3 px-8 rounded-full hover:bg-main hover:text-black transition-all">Certificates <i class="fa-solid fa-arrow-down ml-2"></i></a>
+                    </div>
                 </div>
                 <!-- Right Column: Image -->
                 <div>
-                    <img src="../images/ajas.jpg" alt="Portrait of Ajas Muhannad" class="w-72 h-96 md:w-96 md:h-[28rem] object-cover rounded-b-3xl border-4 border-main shadow-main hover:shadow-lg transition-shadow duration-300">
+                    <img src="../images/ajas.jpg" alt="Portrait of Ajas" class="w-72 h-96 md:w-96 md:h-[28rem] object-cover rounded-3xl border-4 border-main shadow-main hover:shadow-lg transition-shadow duration-300">
                 </div>
             </div>
         </section>
@@ -88,12 +91,12 @@
         <!-- About Section -->
         <section id="about" class="py-20 bg-secondary">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold uppercase">About <span class="text-main">Me</span></h2>
-                <p class="text-gray-300 mt-2">Transforming ideas into digital experiences</p>
+                <h2 class="text-4xl font-bold ">About <span class="text-main">Me</span></h2>
+                <p class="text-gray-400 mt-2">Transforming ideas into digital experiences</p>
 
                 <div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-12">
                     <div class="flex-shrink-0">
-                        <img src="../images/ajas.jpg" alt="Ajas Muhannad" class="w-64 h-80 md:w-72 md:h-96 rounded-b-3xl object-cover border-4 border-main shadow-lg">
+                        <img src="../images/ajas1.jpg" alt="Ajas Muhannad" class="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover border-4 border-main shadow-lg">
                     </div>
                     <div class="max-w-xl text-center md:text-left">
                         <p class="text-gray-300 mb-8 leading-relaxed">
@@ -215,7 +218,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-secondary">
             <div class="container mx-auto px-6">
@@ -249,7 +252,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Skills & Certifications Section (RE-ORGANIZED and BOXED) -->
         <section id="skills-certs" class="py-20">
             <div class="container mx-auto px-6">
@@ -293,15 +296,15 @@
 
                                     <!-- Skill Item: Excel (Logo Updated) -->
                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel" class="w-16 h-16 mb-2">
+                                        <img src="https://www.logo.wine/a/logo/Microsoft_Excel/Microsoft_Excel-Logo.wine.svg" alt="Excel" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">Excel</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 87%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">87%</span>
                                     </div>
-                                    
+
                                     <!-- Skill Item: Tableau (Logo Updated) -->
                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau" class="w-16 h-16 mb-2">
+                                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Emblem.png" alt="Tableau" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">Tableau</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 84%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">84%</span>
@@ -309,7 +312,7 @@
 
                                     <!-- Skill Item: Power BI (Logo Updated) -->
                                      <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <img src="https://cdn.simpleicons.org/microsoftpowerbi/F2C810" alt="Power BI" class="w-16 h-16 mb-2">
+                                        <img src="https://images.seeklogo.com/logo-png/40/1/power-bi-microsoft-logo-png_seeklogo-400711.png" alt="Power BI" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">Power BI</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 85%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">85%</span>
@@ -330,20 +333,20 @@
                                  <h3 class="text-2xl font-semibold mb-6 text-main flex items-center gap-2"><i class="fas fa-user-shield"></i> Cybersecurity</h3>
                                 <div class="grid grid-cols-2 gap-6">
                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <i class="fas fa-shield-alt text-6xl text-cyan-400 mb-2"></i>
+                                        <img src="https://cdn.simpleicons.org/elastic/005571" alt="SIEM" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">SIEM Tools</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 84%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">84%</span>
                                     </div>
                                      <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <i class="fas fa-network-wired text-6xl text-purple-400 mb-2"></i>
+                                        <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Network Security" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">Network Security</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 81%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">81%</span>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Box 3: Development -->
                             <div class="bg-black/50 p-6 rounded-xl border border-main/50 shadow-lg shadow-main/10 lg:col-span-3">
                                 <h3 class="text-2xl font-semibold mb-6 text-main flex items-center gap-2"><i class="fas fa-code"></i> Development</h3>
@@ -356,7 +359,7 @@
                                     </div>
                                     <!-- Skill Item: CSS3 (Logo Updated) -->
                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
-                                        <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3" class="w-16 h-16 mb-2">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS3" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">CSS3</p>
                                          <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 85%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">85%</span>
@@ -367,13 +370,13 @@
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 83%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">83%</span>
                                     </div>
-                                    <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
+                                    <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover;border-main text-center">
                                         <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">Flutter</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 80%"></div></div>
                                         <span class="text-xs text-gray-400 mt-1">80%</span>
                                     </div>
-                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover:border-main text-center">
+                                     <div class="skill-item bg-secondary p-4 rounded-lg flex flex-col items-center justify-between transition-transform transform hover:scale-105 hover:shadow-main border-2 border-transparent hover;border-main text-center">
                                         <img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++" class="w-16 h-16 mb-2">
                                         <p class="font-semibold text-lg mt-1">C++</p>
                                         <div class="w-full bg-gray-700 rounded-full h-2 mt-3"><div class="bg-main h-2 rounded-full" style="width: 86%"></div></div>
@@ -390,8 +393,8 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             
                             <!-- Certificate Card 1: Certified Cyber Security Analyst (CCSA) -->
-                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg">
-                                <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
+                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg cert-card" data-cert="../images/CCSA.png" data-title="Certified Cyber Security Analyst (CCSA)" data-meta="Issued by RedTeam Hacker Academy | Mar 2023">
+                            <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
                                     <img src="../images/CCSA.png" alt="CCSA Certificate Preview" class="w-full h-full object-contain rounded-md">
                                 </div>
                                 <h4 class="text-xl font-bold text-main mb-1">Certified Cyber Security Analyst (CCSA)</h4>
@@ -399,26 +402,26 @@
                             </div>
 
                             <!-- Certificate Card 2: Data Science and AI -->
-                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg">
-                                <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
+                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg cert-card" data-cert="../images/Avoda-AI.png" data-title="Data Science and Artificial Intelligence" data-meta="Issued by Avodha EduTech Pvt. Ltd. | Sep 2025">
+                            <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
                                     <img src="../images/Avoda-AI.png" alt="Data Science Certificate Preview" class="w-full h-full object-contain rounded-md">
                                 </div>
                                 <h4 class="text-xl font-bold text-main mb-1">Data Science and Artificial Intelligence</h4>
                                 <p class="text-sm text-gray-400 mb-2">Issued by Avodha EduTech Pvt. Ltd. | Sep 2025</p>
                             </div>
-                            
+
                             <!-- Certificate Card 3: MERN Essential Training -->
-                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg">
-                                <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
+                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg cert-card" data-cert="../images/Mern-essential.png" data-title="MERN Essential Training" data-meta="Issued by LinkedIn Learning | Apr 2025">
+                            <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
                                     <img src="../images/Mern-essential.png" alt="MERN Certificate Preview" class="w-full h-full object-contain rounded-md">
                                 </div>
                                 <h4 class="text-xl font-bold text-main mb-1">MERN Essential Training</h4>
                                 <p class="text-sm text-gray-400 mb-2">Issued by LinkedIn Learning | Apr 2025</p>
                             </div>
-                            
+
                              <!-- Certificate Card 4: AI Beginners Training -->
-                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg">
-                                <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
+                            <div class="bg-black/30 p-4 rounded-lg border-t-4 border-main shadow-lg cert-card" data-cert="../images/AI.png" data-title="AI Beginners Training Program" data-meta="Issued by UL Research & OSPF | Aug 2025">
+                            <div class="h-48 overflow-hidden rounded-md mb-4 flex items-center justify-center bg-white/5">
                                      <img src="../images/AI.png" alt="AI Certificate Preview" class="w-full h-full object-contain rounded-md">
                                 </div>
                                 <h4 class="text-xl font-bold text-main mb-1">AI Beginners Training Program</h4>
@@ -430,7 +433,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
         <section id="contact" class="py-20 bg-secondary">
             <div class="container mx-auto px-6">
@@ -475,7 +478,7 @@
                     <!-- Right Side: Send Message Form -->
                     <div class="w-full md:w-2/3 bg-black/30 p-8 rounded-lg">
                         <h3 class="text-2xl font-bold mb-6">Send Message</h3>
-                        <form id="contact-form" class="space-y-4">
+                        <form id="contact-form" class="space-y-4" data-telegram-bot="YOUR_TELEGRAM_BOT_TOKEN" data-telegram-chat="YOUR_TELEGRAM_CHAT_ID">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <input type="text" id="firstName" name="firstName" placeholder="First Name" class="w-full bg-gray-800 rounded-md p-3 border border-gray-700 focus:ring-1 focus:ring-main focus:border-main" required>
                                 <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="w-full bg-gray-800 rounded-md p-3 border border-gray-700 focus:ring-1 focus:ring-main focus:border-main" required>
@@ -507,12 +510,31 @@
                 <div class="flex justify-center space-x-4 mb-4">
                     <a href="#" class="w-10 h-10 flex items-center justify-center border-2 border-gray-600 rounded-full hover:border-main hover:text-main transition-colors"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="w-10 h-10 flex items-center justify-center border-2 border-gray-600 rounded-full hover:border-main hover:text-main transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="#" class="w-10 h-10 flex items-center justify-center border-2 border-gray-600 rounded-full hover:border-main hover:text-main transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center border-2 border-gray-600 rounded-full hover;border-main hover:text-main transition-colors"><i class="fab fa-facebook-f"></i></a>
                 </div>
                 <p>&copy; 2024 Ajas Muhannad. All Rights Reserved.</p>
             </div>
         </footer>
     </main>
+
+    <!-- Certificate Image Modal -->
+    <div id="cert-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-secondary rounded-lg shadow-2xl p-4 md:p-6 max-w-5xl w-full border-4 border-main relative">
+            <button id="close-cert-modal" class="absolute top-2 right-3 text-3xl text-gray-400 hover:text-main">&times;</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <div class="w-full max-h-[75vh] overflow-auto flex items-center justify-center bg-white/5 rounded-md p-2">
+                    <img id="cert-modal-img" src="#" alt="Certificate" class="w-full h-full object-contain rounded-md">
+                </div>
+                <div class="w-full">
+                    <h3 id="cert-modal-title" class="text-2xl font-bold text-main mb-4"></h3>
+                    <p id="cert-modal-meta" class="text-gray-400 mb-6"></p>
+                    <div class="text-sm text-gray-300 space-y-2">
+                        <p>Click outside the card or press × to close.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Project Detail Modal -->
     <div id="project-detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
@@ -544,6 +566,3 @@
     <!-- App JS -->
     <script src="../js/main.js"></script>
 </body>
-</html>
-
-
