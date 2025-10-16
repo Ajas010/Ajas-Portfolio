@@ -1,0 +1,22 @@
+{
+  "name": "ajas-portfolio",
+  "version": "1.0.0",
+  "description": "A personal portfolio showcasing projects and skills.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server .",
+    "build": "echo 'No build step required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "web",
+    "developer"
+  ],
+  "author": "Ajas Muhannad",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

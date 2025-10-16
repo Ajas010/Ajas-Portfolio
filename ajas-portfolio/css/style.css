@@ -1,0 +1,62 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Styles */
+.nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffcc00; /* Main color */
+}
+
+/* Section Styles */
+section {
+    padding: 60px 0;
+}
+
+/* Button Styles */
+button {
+    cursor: pointer;
+}
+
+.bg-main {
+    background-color: #ffcc00; /* Main color */
+}
+
+.text-main {
+    color: #ffcc00; /* Main color */
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+}
