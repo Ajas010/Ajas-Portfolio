@@ -159,6 +159,9 @@ if (window.Typed && document.querySelector('#typed-text')) {
 //             }
 //         });
 
+
+
+
 // --- Tab Functionality for Skills/Certs ---
 const toggleContainer = document.getElementById('toggle-container');
 const skillsBtn = document.getElementById('tab-skills-btn');
