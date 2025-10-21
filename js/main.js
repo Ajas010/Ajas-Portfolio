@@ -118,19 +118,27 @@ if (contactForm) {
         if (formStatus) { formStatus.textContent = ''; formStatus.style.color = ''; }
 
         try {
-            const resp = await fetch('/api/send-message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ subject, name, email, phone, message })
-            });
+            // Compose a mailto: URL so the user's mail client handles sending the message.
+            const to = 'ajasmhannad786@gmail.com';
+            const mailSubject = encodeURIComponent(subject || `Portfolio contact from ${name}`);
+            const bodyLines = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                phone ? `Phone: ${phone}` : '',
+                '',
+                message
+            ].filter(Boolean).join('\n');
+            const mailBody = encodeURIComponent(bodyLines);
+            const mailto = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
 
-            if (!resp.ok) throw new Error('Server error');
+            // Open the user's default mail client
+            window.location.href = mailto;
 
-            if (formStatus) { formStatus.textContent = 'Message sent successfully!'; formStatus.style.color = '#83f346'; }
-            contactForm.reset();
+            if (formStatus) { formStatus.textContent = 'Opening email client...'; formStatus.style.color = '#83f346'; }
+            // Do not reset the form immediately — allow user to send from their mail client
         } catch (err) {
-            console.error('Contact form error', err);
-            if (formStatus) { formStatus.textContent = 'Failed to send message. Please try again later.'; formStatus.style.color = '#ff7b7b'; }
+            console.error('Contact form (mailto) error', err);
+            if (formStatus) { formStatus.textContent = 'Failed to open email client. Please copy the details and email manually.'; formStatus.style.color = '#ff7b7b'; }
         } finally {
             if (submitBtn) { submitBtn.textContent = 'Send Message'; submitBtn.disabled = false; }
             setTimeout(() => { if (formStatus) formStatus.textContent = ''; }, 8000);
