@@ -83,81 +83,60 @@ window.addEventListener('scroll', () => {
 // --- Typed.js Text Animation ---
 if (window.Typed && document.querySelector('#typed-text')) {
     new Typed('#typed-text', {
-        strings: ['Frontend Developer', 'UI/UX Designer', 'SOC Analyst', 'Data Analyst'],
+        strings: ['SOC Analyst', 'UI/UX Designer','Frontend Developer', 'Data Analyst'],
         typeSpeed: 70, backSpeed: 50, backDelay: 1000, loop: true
     });
 }
         
-// --- Telegram Contact Form (Live) ---
-// const contactForm = document.getElementById('contact-form');
-//         contactForm.addEventListener('submit', async (e) => {
-//             e.preventDefault();
-//             const submitBtn = document.getElementById('submit-btn');
-//             const formStatus = document.getElementById('form-status');
+// --- Contact Form (posts to serverless API) ---
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('submit-btn');
+        const formStatus = document.getElementById('form-status');
 
-//             const botToken = 'TELEGRAM_BOT_TOKEN';
-//             const chatId = 'TELEGRAM_CHAT_ID';
+        const formData = new FormData(contactForm);
+        const firstName = (formData.get('firstName') || '').toString().trim();
+        const lastName = (formData.get('lastName') || '').toString().trim();
+        const email = (formData.get('email') || '').toString().trim();
+        const phone = (formData.get('phone') || '').toString().trim();
+        const message = (formData.get('message') || '').toString().trim();
+        const subject = (formData.get('subject') || '').toString().trim();
 
-//             const formData = new FormData(contactForm);
-//             const firstName = (formData.get('firstName') || '').toString().trim();
-//             const lastName = (formData.get('lastName') || '').toString().trim();
-//             const email = (formData.get('email') || '').toString().trim();
-//             const phone = (formData.get('phone') || '').toString().trim();
-//             const message = (formData.get('message') || '').toString().trim();
+        const name = `${firstName} ${lastName}`.trim();
+        if (!name || !email || !message) {
+            if (formStatus) {
+                formStatus.textContent = 'Please fill name, email and message.';
+                formStatus.style.color = '#ff7b7b';
+            }
+            return;
+        }
 
-//             const composedText = [
-//                 `New Portfolio Contact`,
-//                 `Name: ${firstName} ${lastName}`.trim(),
-//                 `Email: ${email}`,
-//                 phone ? `Phone: ${phone}` : '',
-//                 '',
-//                 message
-//             ].filter(Boolean).join('\n');
+        // UI feedback
+        if (submitBtn) { submitBtn.innerHTML = '<div class="loader mx-auto"></div>'; submitBtn.disabled = true; }
+        if (formStatus) { formStatus.textContent = ''; formStatus.style.color = ''; }
 
-//             // --- UI Feedback ---
-//             submitBtn.innerHTML = '<div class="loader mx-auto"></div>';
-//             submitBtn.disabled = true;
-//             formStatus.textContent = '';
-//             formStatus.style.color = '';
+        try {
+            const resp = await fetch('/api/send-message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subject, name, email, phone, message })
+            });
 
-//             const sendUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            if (!resp.ok) throw new Error('Server error');
 
-//             try {
-//                 // Primary attempt: POST fetch (works if CORS is allowed in environment)
-//                 const response = await fetch(sendUrl, {
-//                     method: 'POST',
-//                     headers: { 'Content-Type': 'application/json' },
-//                     body: JSON.stringify({ chat_id: chatId, text: composedText })
-//                 });
-
-//                 if (!response.ok) throw new Error('Telegram API error');
-
-//                 formStatus.textContent = 'Message sent successfully!';
-//                 formStatus.style.color = '#83f346';
-//                 contactForm.reset();
-//             } catch (err) {
-//                 // Fallback: CORS-safe beacon using Image GET request
-//                 await new Promise((resolve) => {
-//                     const img = new Image();
-//                     const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${encodeURIComponent(chatId)}&text=${encodeURIComponent(composedText)}`;
-//                     let settled = false;
-//                     const settle = () => { if (!settled) { settled = true; resolve(); } };
-//                     img.onload = settle;
-//                     img.onerror = settle; // even if it errors visually, the GET likely hit the API
-//                     img.src = url;
-//                     // Safety timeout
-//                     setTimeout(settle, 2000);
-//                 });
-
-//                 formStatus.textContent = 'Message sent!';
-//                 formStatus.style.color = '#83f346';
-//                 contactForm.reset();
-//             } finally {
-//                 submitBtn.textContent = 'Send Message';
-//                 submitBtn.disabled = false;
-//                 setTimeout(() => { formStatus.textContent = ''; }, 8000);
-//             }
-//         });
+            if (formStatus) { formStatus.textContent = 'Message sent successfully!'; formStatus.style.color = '#83f346'; }
+            contactForm.reset();
+        } catch (err) {
+            console.error('Contact form error', err);
+            if (formStatus) { formStatus.textContent = 'Failed to send message. Please try again later.'; formStatus.style.color = '#ff7b7b'; }
+        } finally {
+            if (submitBtn) { submitBtn.textContent = 'Send Message'; submitBtn.disabled = false; }
+            setTimeout(() => { if (formStatus) formStatus.textContent = ''; }, 8000);
+        }
+    });
+}
 
 
 

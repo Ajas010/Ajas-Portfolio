@@ -14,7 +14,7 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 0.75rem; }
 ::-webkit-scrollbar-track { background: #000000; }
-::-webkit-scrollbar-thumb { background: #1f3a93; border-radius: 5px;}
+::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 5px;}
 
 /* Active nav link style */
 .nav-link.active {
